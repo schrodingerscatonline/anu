@@ -52,6 +52,8 @@ task:
       - rm -rf hardware/qcom-caf/sm8250/media
       - rm -rf external/json-c
       - rm -rf hardware/interfaces/bluetooth
+      - rm -rf system/bt
+      - git clone --depth=1 https://github.com/I-n-o-k/android_system_bt
       - git clone --depth=1 https://github.com/I-n-o-k/android_hardware_interfaces_bluetooth hardware/interfaces/bluetooth
       - git clone --depth=1 https://github.com/I-n-o-k/hardware_qcom-caf_sm8250_audio hardware/qcom-caf/sm8250/audio
       - git clone --depth=1 https://github.com/I-n-o-k/hardware_qcom-caf_sm8250_display hardware/qcom-caf/sm8250/display
