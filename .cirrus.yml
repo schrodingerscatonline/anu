@@ -1,6 +1,6 @@
 env:
     rcloneconfig: "ENCRYPTED[96220bcfb28c46fb52e4f92dbd1ce10773a4bf2bf70e2cb7b111e6a6a61dcfb7bf1978046e1687900917945d479ff121]"
-    tokentl: "ENCRYPTED[3072586c97aa0276c99c6c78fddb92919a7db06aa728f3fe044045b9091c43d0ac273697e5137b01c99be052f9628e6a]"
+    tokentl: "ENCRYPTED[a92b640938f11acdb62ee97a146495202b9281e4d68ad5c7f63292fd484e59083a87d16760ac93e9a843565af1335418]"
     idtl: "ENCRYPTED[633997488a308c847d7388d1e543a1639202c02f28104e12a88821080f271c2a44a61f81108d6aada17056226d2332b4]"
 task:
   name: "Setting Up, Syncing, Building and Uploading..."
@@ -42,7 +42,7 @@ task:
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/SuperiorOS/manifest.git -b twelve -g default,-mips,-darwin,-notdefault
       # DT/VT/KT/TC
       - git clone --depth=1 https://github.com/manojkrishkumar/local_manifest.git -b superior .repo/local_manifests
-      - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+      - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
       - echo "============================"
       - echo "Sync Completed!"
