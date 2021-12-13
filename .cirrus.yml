@@ -42,7 +42,7 @@ task:
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/SuperiorOS/manifest.git -b twelve -g default,-mips,-darwin,-notdefault
       # DT/VT/KT/TC
       - git clone --depth=1 https://github.com/manojkrishkumar/local_manifest.git -b test .repo/local_manifests
-      - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync
+      - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
       - echo "============================"
       - echo "Sync Completed!"
