@@ -62,7 +62,7 @@ task:
       - source build/envsetup.sh > /dev/null 2>&1
       - lunch superior_laurel_sprout-userdebug > /dev/null 2>&1
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="$(echo "${var_cache_report_config}")"
-      - make bacon -j$(nproc --all)
+      - make bacon -j16
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build $(cd /tmp/rom/out/target/product/juice/ && ls Nusantara*.zip) Completed!"
       - echo "============================"
       - echo "Build Completed!"
