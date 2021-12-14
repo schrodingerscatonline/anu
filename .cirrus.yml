@@ -41,8 +41,8 @@ task:
       - cd /tmp/rom
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/SuperiorOS/manifest.git -b twelve -g default,-mips,-darwin,-notdefault
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+      - git clone --depth=1 https://github.com/manojkrishkumar/local_manifest.git -b test .repo/local_manifests
       # DT/VT/KT/TC
-      - git clone --depth=1 https://github.com/manojkrishkumar/local_manifest.git -b test .repo/local_manifests 
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
       - echo "============================"
       - echo "Sync Completed!"
@@ -59,8 +59,8 @@ task:
       - ccache -M 20G
       - ccache -o compression=true
       - ccache -z
-      - source build/envsetup.sh > /dev/null 2>&1
-      - lunch superior_laurel_sprout-userdebug > /dev/null 2>&1
+      - source build/envsetup.sh
+      - lunch superior_laurel_sprout-userdebug
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="$(echo "${var_cache_report_config}")"
       - make bacon -j$(nproc --all)
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build $(cd /tmp/rom/out/target/product/juice/ && ls Superior*.zip) Completed!"
