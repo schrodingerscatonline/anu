@@ -41,8 +41,8 @@ task:
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Start sync Source"
       - cd /tmp/rom
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/SuperiorOS/manifest.git -b twelve -g default,-device,-mips,-darwin,-notdefault
-      - git clone https://github.com/manojkrishkumar/local_manifest.git --depth=1 -b test .repo/local_manifests
-      - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
+      - git clone https://github.com/manojkrishkumar/local_manifest.git --depth=1 -b superior .repo/local_manifests
+      - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync
       # DT/VT/KT/TC
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
       - echo "============================"
@@ -63,7 +63,7 @@ task:
       - source build/envsetup.sh > /dev/null 2>&1
       - lunch superior_laurel_sprout-userdebug > /dev/null 2>&1
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="$(echo "${var_cache_report_config}")"
-      - make bacon -j$(nproc --all)
+      - make bacon -j8
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build $(cd /tmp/rom/out/target/product/laurel_sprout/ && ls *.zip) Completed!"
       - echo "============================"
       - echo "Build Completed!"
