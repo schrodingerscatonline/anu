@@ -21,8 +21,8 @@ task:
        - DEBIAN_FRONTEND=noninteractive
        - sudo apt install python3 -y
        - sudo ln -sf /usr/bin/python3 /usr/bin/python
-       - git config --global user.name "manojkrishkumar"
-       - git config --global user.email "manojv970@gmail.com"
+       - git config --global user.name "schrodingerscatonline"
+       - git config --global user.email "schrodingerscatonline@gmail.com"
        - mkdir -p /tmp/ccache
        - rclone copy remote:ccache/ci2/ccache.tar.gz /tmp -P
        - cd /tmp
