@@ -12,7 +12,7 @@ task:
       memory: 32G
         
   Build-Env-Setup_background_script:
-       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Setup - Testing Evolution X Build. Special thanks to my brother for timely help"
+       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Setup - Testing Evolution X Build"
        - export DEBIAN_FRONTEND=noninteractive
        - apt update
        - apt install sudo
@@ -86,4 +86,3 @@ task:
       - echo "============================"
       - echo "Build Uploaded Successfully!"
       - echo "============================"
-
