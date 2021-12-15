@@ -41,9 +41,11 @@ task:
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Start sync Source"
       - cd /tmp/rom
       - repo init -q --no-repo-verify --depth=1 -u https://github.com/SuperiorOS/manifest.git -b twelve -g default,-device,-mips,-darwin,-notdefault
-      - git clone https://github.com/manojkrishkumar/local_manifest.git --depth=1 -b superior .repo/local_manifests
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       # DT/VT/KT/TC
+      - git clone --depth=1 https://github.com/schrodingerscatonline/android_device_xiaomi_laurel_sprout -b superior device/xiaomi/laurel_sprout
+      - git clone --depth=1 https://github.com/magicxavi/android_vendor_xiaomi_laurel_sprout --single-branch -b fw11_S vendor/xiaomi/laurel_sprout
+      - git clone --depth=1 https://github.com/magicxavi/android_kernel_xiaomi_laurel_sprout --single-branch -b lineage-18.1 kernel/xiaomi/laurel_sprout
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
       - echo "============================"
       - echo "Sync Completed!"
