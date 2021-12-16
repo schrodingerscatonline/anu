@@ -62,8 +62,8 @@ task:
       - ccache -M 20G
       - ccache -o compression=true
       - ccache -z
-      - source build/envsetup.sh > /dev/null 2>&1
-      - lunch superior_laurel_sprout-userdebug > /dev/null 2>&1
+      - source build/envsetup.sh lunch superior_laurel_sprout-userdebug > /dev/null 2>&1
+      #- lunch superior_laurel_sprout-userdebug > /dev/null 2>&1
       #- curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="$(echo "${var_cache_report_config}")"
       - make bacon -j8
       #- curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build $(cd /tmp/rom/out/target/product/laurel_sprout/ && ls *.zip) Completed!"
