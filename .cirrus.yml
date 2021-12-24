@@ -64,7 +64,11 @@ task:
       - source build/envsetup.sh > /dev/null 2>&1
       - lunch evolution_laurel_sprout-userdebug > /dev/null 2>&1
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="$(echo "${var_cache_report_config}")"
-      - mka evolution -j8
+      - make api-stubs-docs-non-updatable || echo no problem
+      - make hiddenapi-lists-docs-non-updatable || echo no problem
+      - make system-api-stubs-docs-non-updatable || echo no problem
+      - make test-api-stubs-docs-non-updatable || echo no problem
+      - make evolution -j8
       - curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Build $(cd /tmp/rom/out/target/product/laurel_sprout/ && ls *.zip) Completed!"
       - echo "============================"
       - echo "Build Completed!"
