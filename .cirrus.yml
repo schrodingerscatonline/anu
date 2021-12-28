@@ -45,7 +45,7 @@ task:
       - git clone https://github.com/schrodingerscatonline/local_manifest.git --depth=1 -b xtended .repo/local_manifests
       - repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j8
       # DT/VT/KT/TC
-      - git clone --depth=1 https://github.com/schrodingerscatonline/antradio-library external/ant-wireless/antradio-library
+      #- git clone --depth=1 https://github.com/schrodingerscatonline/antradio-library external/ant-wireless/antradio-library
       #- curl -s https://api.telegram.org/$tokentl/sendMessage -d chat_id=$idtl -d text="Sync Completed!"
       - echo "============================"
       - echo "Sync Completed!"
